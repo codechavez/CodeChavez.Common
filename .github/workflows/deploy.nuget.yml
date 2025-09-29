@@ -1,0 +1,32 @@
+name: Deploy teslacode Common NuGet
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET (use global.json)
+        uses: actions/setup-dotnet@v4
+        with:
+          source-url: https://api.nuget.org/v3/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{ secrets.NUGET_API_KEY }}
+
+      - name: Restore dependencies
+        run: dotnet restore **/*.csproj --configfile nuget.config --no-cache
+
+      - name: Build project
+        run: dotnet build **/*.csproj --configuration Release --no-restore
+
+      - name: Package RTLS.Common
+        run: dotnet pack **/RTLS.Common.csproj --configuration Release --no-build --output ./artifacts
+
+      - name: Push NuGet package
+        run: dotnet nuget push "./artifacts/*.nupkg" --api-key ${{ secrets.NUGET_AUTH_TOKEN }} --source "https://pkgs.dev.azure.com/<your-org>/_packaging/<your-feed>/nuget/v3/index.json"
