@@ -17,13 +17,13 @@ jobs:
         uses: actions/setup-dotnet@v4
 
       - name: Restore dependencies
-        run: dotnet restore **/Teslacode.Common/Teslacode.Common.csproj --configfile nuget.config --no-cache
+        run: dotnet restore **/Teslacode.Common/CodeChavez.Common.csproj --configfile nuget.config --no-cache
 
       - name: Build project
-        run: dotnet build **/Teslacode.Common/Teslacode.Common.csproj --configuration Release
+        run: dotnet build **/Teslacode.Common/CodeChavez.Common.csproj --configuration Release
 
       - name: Package Common
-        run: dotnet pack **/Teslacode.Common/Teslacode.Common.csproj --configuration Release --no-build --output ./artifacts
+        run: dotnet pack **/Teslacode.Common/CodeChavez.Common.csproj --configuration Release --no-build --output ./artifacts
 
       - name: Push NuGet package
         run: dotnet nuget push "./artifacts/*.nupkg" --api-key $NUGET_AUTH_TOKEN --source https://api.nuget.org/v3/index.json

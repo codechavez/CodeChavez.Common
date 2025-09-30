@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 
-namespace Teslacode.Common;
+namespace CodeChavez.Common;
 
 public static class ApplicationSettings
 {

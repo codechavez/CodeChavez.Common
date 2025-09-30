@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Teslacode.Common.Extensions;
+namespace CodeChavez.Common.Extensions;
 
 public static class EnumExtensions
 {

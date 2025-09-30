@@ -1,4 +1,4 @@
-﻿namespace Teslacode.Common;
+﻿namespace CodeChavez.Common;
 
 public class Result<T>
 {
