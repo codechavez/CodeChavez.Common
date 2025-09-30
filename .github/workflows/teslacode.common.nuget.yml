@@ -20,7 +20,7 @@ jobs:
           NUGET_AUTH_TOKEN: ${{ secrets.NUGET_API_KEY }}
 
       - name: Restore dependencies
-        run: dotnet restore **/*.csproj --configfile nuget.config --no-cache
+        run: dotnet restore **/Teslacode.Common/Teslacode.Common.csproj --configfile nuget.config --no-cache
 
       - name: Build project
         run: dotnet build **/*.csproj --configuration Release
