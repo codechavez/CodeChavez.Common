@@ -5,14 +5,26 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		<PackageId>Teslacode.Common</PackageId>
-		<Title> teslacode Common Library</Title>
+		<PackageId>cochavez.common</PackageId>
+		<Title> codechavez Common Library</Title>
 		<Authors>Victor A Chavez</Authors>
-		<Product>Teslacode.Common</Product>
+		<Product>codecode.Common</Product>
 		<Version>9.0.0</Version>
+		<Copyright>2020-2025</Copyright>
 		<Description>Has some useful extension and utilities that allow for every day development</Description>
+		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageProjectUrl>https://github.com/codechavez/teslacode.common</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/codechavez/teslacode.common</RepositoryUrl>
+		<PackageLicenseFile></PackageLicenseFile>
+		<PackageTags>codechavez,common,helpers,utilities,.net</PackageTags>
 	</PropertyGroup>
 
+	<ItemGroup>
+		<None Include="..\..\README.md" Pack="true" PackagePath="\"/>
+		<None Include="..\..\LICENSE" Pack="true" PackagePath="\"/>
+	</ItemGroup>
+	
 	<ItemGroup>
 		<PackageReference Include="AutoMapper" Version="15.0.1" />
 		<PackageReference Include="MediatR" Version="13.0.0" />
