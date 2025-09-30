@@ -23,10 +23,10 @@ jobs:
         run: dotnet restore **/Teslacode.Common/Teslacode.Common.csproj --configfile nuget.config --no-cache
 
       - name: Build project
-        run: dotnet build **/*.csproj --configuration Release
+        run: dotnet build **/Teslacode.Common/Teslacode.Common.csproj --configuration Release
 
       - name: Package Common
-        run: dotnet pack **/Teslacode.Common.csproj --configuration Release --no-build --output ./artifacts
+        run: dotnet pack **/Teslacode.Common/Teslacode.Common.csproj --configuration Release --no-build --output ./artifacts
 
       - name: Push NuGet package
         run: dotnet nuget push "./artifacts/*.nupkg" --api-key ${{ secrets.NUGET_AUTH_TOKEN }} --source "--source https://api.nuget.org/v3/index.json"
