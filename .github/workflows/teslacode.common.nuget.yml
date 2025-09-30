@@ -30,4 +30,4 @@ jobs:
         run: dotnet pack **/Teslacode.Common/Teslacode.Common.csproj --configuration Release --no-build --output ./artifacts
 
       - name: Push NuGet package
-        run: dotnet nuget push "./artifacts/*.nupkg" --api-key ${{ secrets.NUGET_AUTH_TOKEN }} --source https://api.nuget.org/v3/index.json
+        run: dotnet nuget push "./artifacts/*.nupkg" --api-key ${{ secrets.NUGET_AUTH_TOKEN }} --source https://www.nuget.org/api/v3/package
